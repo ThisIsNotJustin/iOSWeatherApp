@@ -12,7 +12,6 @@ struct WeatherView: View {
     @State var show = false
     @State private var isSearching = false
     @State var searchText = ""
-    @State var day: Bool = false
     
     var body: some View {
         ZStack(alignment: .leading) {

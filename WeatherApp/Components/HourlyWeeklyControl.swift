@@ -32,7 +32,7 @@ struct HourlyWeeklyControl: View {
                 .frame(minWidth: 0, maxWidth: .infinity)
             }
             .font(.subheadline.weight(.semibold))
-            .foregroundColor(.secondary)
+            .foregroundColor(.black)
             
             Divider()
                 .background(.white.opacity(0.75))
