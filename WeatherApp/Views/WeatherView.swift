@@ -12,6 +12,7 @@ struct WeatherView: View {
     @State var show = false
     @State private var isSearching = false
     @State var searchText = ""
+    @State var day: Bool = false
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -31,8 +32,10 @@ struct WeatherView: View {
                                 }
                                 .navigationDestination(isPresented: $isSearching) {
                                     CityView()
+                                        .background(getBackgoundColor())
                                 
                                 }
+                                
                                 
                                 if !isSearching {
                                     VStack(alignment: .leading, spacing: 5) {
@@ -100,7 +103,7 @@ struct WeatherView: View {
                     
                 }
                 .edgesIgnoringSafeArea(.bottom)
-                .background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
+                .background(getBackgoundColor())
                 .preferredColorScheme(.dark)
             }
             
@@ -112,6 +115,21 @@ struct WeatherView: View {
                         .zIndex(1)
                 }
             }
+        }
+    }
+    
+    func getBackgoundColor() -> Color {
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        
+        switch hour {
+        case 0..<5:
+            return Color(hue: 0.656, saturation: 0.787, brightness: 0.354)
+        case 6..<21:
+            return Color.cyan
+        default:
+            return Color(hue: 0.656, saturation: 0.787, brightness: 0.354)
         }
     }
     

@@ -32,6 +32,7 @@ struct Forecast: Identifiable {
     var low: Double
     var location: String
     
+    // update with icons under given weather conditions
     var icon: String {
         switch weather {
         case .clear:
@@ -74,6 +75,7 @@ extension Forecast {
         Forecast(date: .init(timeIntervalSinceNow: day * 5), weather: .rainy, probability: 0, temperature: 19, high: 24, low: 18, location: "Montreal, Canada")
     ]
     
+    // model data until search bar fix for real time data 
     static let cities: [Forecast] = [
         Forecast(date: .now, weather: .rainy, probability: 0, temperature: 66.2, high: 75.2, low: 64.4, location: "Montreal, Canada"),
         Forecast(date: .now, weather: .windy, probability: 0, temperature: 68, high: 69.8, low: 66.2, location: "Toronto, Canada"),
